@@ -6,10 +6,19 @@ class Match(db.Model):
 
     __tablename__ = "matches"
 
-    match_id = db.Column(db.Integer, primary_key=True)
+    match_id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
-    team_a = db.Column(db.Integer)
+    team_a = db.Column(
+        db.Integer
+    )
 
-    team_b = db.Column(db.Integer)
+    team_b = db.Column(
+        db.Integer
+    )
 
-    winner = db.Column(db.Integer)
+    winner = db.Column(
+        db.Integer
+    )
