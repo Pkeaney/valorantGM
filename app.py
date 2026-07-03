@@ -5,6 +5,7 @@ from flask import Flask
 from extensions import db
 
 from routes.simulation import sim_bp
+from routes.standings import standings_bp
 
 
 def create_app():
@@ -20,17 +21,18 @@ def create_app():
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-
 ## INITIALISE EXTENSIONS and FLASK app
 
     db.init_app(app)
 
+    app.app_context().push()
+
 ## REGISTER ROUTES (BLUEPRINTS)
 
     app.register_blueprint(sim_bp)
+    app.register_blueprint(standings_bp)
 
     return app
-
 
 ## RUN SERVER
 
